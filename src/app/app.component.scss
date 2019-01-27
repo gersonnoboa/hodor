@@ -1,0 +1,24 @@
+@media only screen and (max-width: 600px) {
+  .application-container {
+      margin-right: 20px;
+      margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .application-container {
+      margin-right: 50px;
+      margin-left: 50px;
+  }
+} 
+
+@media only screen and (min-width: 768px) {
+  .application-container {
+      width: 60%;
+      margin: auto
+  }
+} 
+
+.application-container {
+  margin-top: 20px;
+}
