@@ -1,3 +1,9 @@
+<mat-card>
+  <mat-card-title>Your predictions</mat-card-title>
+  <mat-card-subtitle>
+    Add your predictions here. No character is mandatory. If the first episode has already aired, you cannot change your predictions anymore.
+  </mat-card-subtitle>
+</mat-card>
 <mat-card *ngFor="let character of characters; index as i;">
   <mat-card-title>{{character}}</mat-card-title>
   <mat-card-content>
@@ -9,6 +15,13 @@
   </mat-card-content>
 </mat-card>
 
-<p>
+<mat-card>
+  <mat-card-subtitle>
+    You know nothing.
+  </mat-card-subtitle>
+  <mat-card-actions>
     <button mat-raised-button color="primary">Submit</button>
-</p>
+    <button mat-raised-button color="primary" [routerLink]="['/home']">Back</button>
+  </mat-card-actions>
+</mat-card>
+
