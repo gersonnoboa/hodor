@@ -1,9 +1,19 @@
 export class JWT {
+  private name = "jwt";
+
   static get() {
-    return localStorage.getItem("jwt");
+    return localStorage.getItem(name);
+  }
+
+  static isMissingToken() {
+    return JWT.get() == null
   }
 
   static set(token: string) {
-    localStorage.setItem("jwt", token);
+    localStorage.setItem(name, token);
+  }
+
+  static remove() {
+    localStorage.removeItem(name);
   }
 }
