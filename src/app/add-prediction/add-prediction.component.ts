@@ -56,7 +56,6 @@ export class AddPredictionComponent implements OnInit {
   }
 
   getPredictions() {
-    this.service
   }
 
 }

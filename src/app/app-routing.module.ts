@@ -9,10 +9,6 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: "",
-    component: RootComponent
-  },
-  {
     path: "home",
     component: HomeComponent
   },
@@ -25,7 +21,7 @@ const routes: Routes = [
     component: JoinGroupComponent
   },  
   {
-    path: "login",
+    path: "",
     component: LoginComponent
   },
   {
