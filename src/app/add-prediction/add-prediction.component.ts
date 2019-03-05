@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PredictionsService } from '../services/predictions.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-prediction',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-prediction.component.scss']
 })
 export class AddPredictionComponent implements OnInit {
+  isLoading = false;
+  predictions: any;
 
   characters = [
     "Jon Snow",
@@ -45,9 +49,14 @@ export class AddPredictionComponent implements OnInit {
     "White Walker"
   ];
 
-  constructor() { }
+  constructor(private service: PredictionsService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+  }
+
+  getPredictions() {
+    this.service
   }
 
 }
