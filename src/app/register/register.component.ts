@@ -10,6 +10,10 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.getElementById("btnLogout").style.display = "none";
   }
 
+  ngOnDestroy() {
+    document.getElementById("btnLogout").style.display = "block";
+  }
 }
