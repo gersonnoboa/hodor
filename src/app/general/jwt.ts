@@ -16,4 +16,8 @@ export class JWT {
   static remove() {
     localStorage.removeItem(name);
   }
+
+  static getHeader() {
+    return { "x-auth-token": this.get() }
+  }
 }

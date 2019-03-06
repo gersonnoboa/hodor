@@ -9,12 +9,12 @@
       Add your predictions here. No character is mandatory. If the first episode has already aired, you cannot change your predictions anymore.
     </mat-card-subtitle>
   </mat-card>
-  <mat-card *ngFor="let character of characters; index as i;">
-    <mat-card-title>{{character}}</mat-card-title>
+  <mat-card *ngFor="let prediction of predictions; index as i;">
+    <mat-card-title>{{prediction.name}}</mat-card-title>
     <mat-card-content>
-      <mat-radio-group>
-        <mat-radio-button class="" *ngFor="let status of statuses" [value]="status">
-          {{ status }}
+      <mat-radio-group [(ngModel)]="prediction.status">
+        <mat-radio-button class="" *ngFor="let status of prediction.statusOptions" [value]="status.name" [checked]="status.isActive">
+          {{ status.name }}
         </mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
@@ -22,7 +22,7 @@
   
   <mat-card>
     <mat-card-content>
-      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" (click)="onSubmitClicked()">Submit</button>
       <button mat-raised-button color="primary" [routerLink]="['/home']">Back</button>
     </mat-card-content>
   </mat-card>

@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.goToHome();
     }, 
     error => {
-      General.show(this.snackBar, "An error has occurred. Please try again later.");
+      General.showGeneralError(this.snackBar);
       console.log(error.error);
     });
   }

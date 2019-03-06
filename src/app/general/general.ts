@@ -9,4 +9,8 @@ export class General {
         verticalPosition: 'top'
       })
   }
+
+  static showGeneralError(snackBar: MatSnackBar) {
+    General.show(snackBar, "An error has occurred. Please try again later.");
+  }
 }

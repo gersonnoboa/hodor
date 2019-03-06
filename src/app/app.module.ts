@@ -33,6 +33,7 @@ import { RootComponent } from './root/root.component';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     FormsModule,

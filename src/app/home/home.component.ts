@@ -9,9 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router,
-    private authService: AuthService) { 
-    if (authService.isUserLoggedOut()) {
+  constructor(private router: Router, private authService: AuthService) { 
+    if (this.authService.isUserLoggedOut()) {
       this.router.navigateByUrl("/");
     }
   }
