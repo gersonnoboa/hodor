@@ -1,3 +1,11 @@
 mat-card {
   margin-bottom: 20px;
 }
+
+button {
+  text-align: left;
+}
+
+mat-action-list > button {
+  background-color: #f1f1f1;
+}
