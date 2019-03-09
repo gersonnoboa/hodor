@@ -93,7 +93,6 @@ export class AddPredictionComponent implements OnInit {
 
   onSubmitClicked() {
     this.service.postPredictions(this.predictions).subscribe(event => {
-      console.log(event);
       General.show(this.snackBar, "Predictions saved successfully");
       this.router.navigateByUrl("/home");
     }, error => {

@@ -18,7 +18,7 @@ export class PredictionsService {
 
   postPredictions(predictions: Array<Prediction>) {
     let headers = JWT.getHeader();
-    console.log(headers);
+    
     return this.http
     .post(environment.url + "/api/predictions", 
     { predictions: predictions }, 

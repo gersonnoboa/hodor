@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { GroupService } from '../services/group.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,14 @@ import { GroupService } from '../services/group.service';
 })
 export class HomeComponent implements OnInit {
   isLoadingGroup = false;
+  isLoadingScore = false;
   groups: Array<any> = [];
+  score: 0;
 
-  constructor(private router: Router, private authService: AuthService, private groupService: GroupService) { 
+  constructor(private router: Router, 
+    private authService: AuthService, 
+    private groupService: GroupService,
+    private userService: UserService) { 
     if (this.authService.isUserLoggedOut()) {
       this.router.navigateByUrl("/");
     }
@@ -20,6 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getGroups();
+    this.getScore();
   }
 
   getGroups() {
@@ -30,6 +37,16 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.error(error.error);
       this.isLoadingGroup = false;
+    });
+  }
+
+  getScore() {
+    this.isLoadingScore = true;
+    this.userService.getPredictions().subscribe(event => {
+      this.score = (event as Array<any>)[0].score;
+      this.isLoadingScore = false;
+    }, error => {
+      this.isLoadingScore = false;
     });
   }
 }

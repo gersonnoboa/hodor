@@ -22,4 +22,10 @@ export class GroupService {
     .get(environment.url + "/api/group-users",
     { headers: JWT.getHeader() });
   }
+
+  getGroupInformation(id: string) {
+    return this.http
+    .get(environment.url + "/api/group-users/" + id,
+    { headers: JWT.getHeader() });
+  }
 }

@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RootComponent } from './root/root.component';
 import { HomeComponent } from './home/home.component';
+import { GroupComponent } from './group/group.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path:"group/:groupId",
+    component: GroupComponent
   }
 ];
 

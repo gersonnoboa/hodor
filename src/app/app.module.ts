@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RootComponent } from './root/root.component';
+import { GroupComponent } from './group/group.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RootComponent } from './root/root.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    RootComponent
+    RootComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,
