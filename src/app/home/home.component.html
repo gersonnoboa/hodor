@@ -18,7 +18,14 @@
   <mat-card-title>Your groups</mat-card-title>
   <mat-card-subtitle>Click on a group to see its leaderboard.</mat-card-subtitle>
   <mat-card-content>
-    blabla
+    <mat-spinner *ngIf="isLoadingGroups"></mat-spinner>
+    <mat-list *ngIf="!isLoadingGroups && groups.length != 0">
+      <mat-list-item *ngFor="let group of groups"> 
+        <h4 mat-line> {{ group.name }} </h4>
+        <p mat-line>ID {{ group._id }}</p>
+      </mat-list-item>
+    </mat-list>
+    <h4 *ngIf="!isLoadingGroups && groups.length == 0">You haven't joined any groups.</h4>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" [routerLink]="['/join-group']">Join a group</button>
