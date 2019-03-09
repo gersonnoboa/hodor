@@ -13,7 +13,6 @@ import { JoinGroupComponent } from './join-group/join-group.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { RootComponent } from './root/root.component';
 import { GroupComponent } from './group/group.component';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { GroupComponent } from './group/group.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    RootComponent,
     GroupComponent
   ],
   imports: [

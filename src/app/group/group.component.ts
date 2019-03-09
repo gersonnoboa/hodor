@@ -42,11 +42,12 @@ export class GroupComponent implements OnInit {
   showGroupInformation(information) {
     let members = [];
     let name = "";
+    let id = "";
     information.forEach(element => {
       name = element.group.name;
+      id = element.group._id;
 
       let member = {
-        name: element.user.name,
         username: element.user.username,
         score: element.results.score
       }
@@ -56,7 +57,8 @@ export class GroupComponent implements OnInit {
     
     this.group = {
       name: name,
-      members: members
+      members: members,
+      id: id
     }
 
     this.isLoading = false;

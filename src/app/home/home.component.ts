@@ -43,9 +43,13 @@ export class HomeComponent implements OnInit {
   getScore() {
     this.isLoadingScore = true;
     this.userService.getPredictions().subscribe(event => {
-      this.score = (event as Array<any>)[0].score;
+      let remoteScore = (event as Array<any>)
+      
+      this.score = (remoteScore.length == 0) ? 0 : remoteScore[0].score;
+      
       this.isLoadingScore = false;
     }, error => {
+      this.score = 0;
       this.isLoadingScore = false;
     });
   }

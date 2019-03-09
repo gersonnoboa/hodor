@@ -23,8 +23,7 @@
     <mat-action-list *ngIf="!isLoadingGroups && groups.length != 0">
       <button mat-list-item *ngFor="let group of groups; index as i" [routerLink]="['/group', group.group._id]">
         <h4 mat-line> {{ group.group.name }} </h4>
-        <p mat-line>ID {{ group.group._id }}</p>
-        <mat-divider *ngIf="i != 0"></mat-divider>
+        <mat-divider *ngIf="group.length != 1"></mat-divider>
       </button>
     </mat-action-list>
     <h4 *ngIf="!isLoadingGroups && groups.length == 0">You haven't joined any groups.</h4>

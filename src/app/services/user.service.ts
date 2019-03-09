@@ -14,4 +14,12 @@ export class UserService {
     return this.http
       .get(environment.url + "/api/results/user", { headers: JWT.getHeader() });
   }
+
+  registerUser(username: string, password: string) {
+    return this.http
+    .post(environment.url + "/api/users", {
+      username: username,
+      password: password
+    });
+  }
 }
