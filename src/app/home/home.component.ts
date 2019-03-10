@@ -10,8 +10,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  isLoadingGroup = false;
-  isLoadingScore = false;
+  isLoadingGroups = false;
   groups: Array<any> = [];
   score: 0;
 
@@ -30,27 +29,24 @@ export class HomeComponent implements OnInit {
   }
 
   getGroups() {
-    this.isLoadingGroup = true;
+    this.isLoadingGroups = true;
     this.groupService.getGroups().subscribe(event => {
       this.groups = event as Array<any>;
-      this.isLoadingGroup = false;
+      this.isLoadingGroups = false;
     }, error => {
       console.error(error.error);
-      this.isLoadingGroup = false;
+      this.isLoadingGroups = false;
     });
   }
 
   getScore() {
-    this.isLoadingScore = true;
+    this.score = 0;
     this.userService.getPredictions().subscribe(event => {
       let remoteScore = (event as Array<any>)
       
       this.score = (remoteScore.length == 0) ? 0 : remoteScore[0].score;
-      
-      this.isLoadingScore = false;
     }, error => {
-      this.score = 0;
-      this.isLoadingScore = false;
+      
     });
   }
 }

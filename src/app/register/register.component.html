@@ -4,17 +4,20 @@
   <mat-card-content>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Username" type="text" [(ngModel)]='username'>
+        <input matInput placeholder="Username" type="text" [(ngModel)]='username' 
+        autocorrect="off" autocapitalize="off" spellcheck="false">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" [(ngModel)]='password'>
+        <input matInput placeholder="Password" type="password" [(ngModel)]='password' 
+        autocorrect="off" autocapitalize="off" spellcheck="false">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Repeat password" type="password" [(ngModel)]='passwordRepeat'>
+        <input matInput placeholder="Repeat password" type="password" [(ngModel)]='passwordRepeat' 
+        autocorrect="off" autocapitalize="off" spellcheck="false">
       </mat-form-field>
     </div>
     <div>

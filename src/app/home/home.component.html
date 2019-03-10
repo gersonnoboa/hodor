@@ -10,8 +10,7 @@
   <mat-card-title>Your score</mat-card-title>
   <mat-card-subtitle>Your score is calculated each Tuesday (to avoid spoilers on Monday).</mat-card-subtitle>
   <mat-card-content>
-    <mat-spinner *ngIf="isLoadingScore" diameter="50"></mat-spinner>
-    <span *ngIf="!isLoadingScore"><span class="score">{{score}}</span> point(s)</span>
+    <span><span class="score">{{score}}</span> point(s)</span>
   </mat-card-content>
 </mat-card>
 
@@ -19,7 +18,7 @@
   <mat-card-title>Your groups</mat-card-title>
   <mat-card-subtitle>Click on a group to see its leaderboard.</mat-card-subtitle>
   <mat-card-content>
-    <mat-spinner *ngIf="isLoadingGroups" diameter="50"></mat-spinner>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoadingGroups"></mat-progress-bar>
     <mat-action-list *ngIf="!isLoadingGroups && groups.length != 0">
       <button mat-list-item *ngFor="let group of groups; index as i" [routerLink]="['/group', group.group._id]">
         <h4 mat-line> {{ group.group.name }} </h4>

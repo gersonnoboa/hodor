@@ -64,10 +64,12 @@ export class AddPredictionComponent implements OnInit {
   }
 
   getPredictions() {
+    this.isLoading = true;
     this.service.getPredictions().subscribe(event => {
       this.generatePredictions(event as Array<any>);
     }, error => {
       console.error(error.error);
+      this.isLoading = false;
     });
   }
 
@@ -89,6 +91,8 @@ export class AddPredictionComponent implements OnInit {
       const prediction = new Prediction(element, status);
       this.predictions.push(prediction);
     }
+
+    this.isLoading = false;
   }
 
   onSubmitClicked() {
