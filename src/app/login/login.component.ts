@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { General } from '../general/general';
 import { JWT } from '../general/jwt';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,12 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private service: LoginService,
     private router: Router,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private authService: AuthService) { 
+    if (!this.authService.isUserLoggedOut()) {
+      this.router.navigateByUrl("/home");
+    }
+  }
 
   ngOnInit() {
     this.formLogin = this.fb.group({
