@@ -99,7 +99,6 @@ export class AddPredictionComponent implements OnInit {
       }
       
       const prediction = new Prediction(characterName, statusPrediction, statusInShow, image);
-      console.log(prediction);
       this.predictions.push(prediction);
     }
 
