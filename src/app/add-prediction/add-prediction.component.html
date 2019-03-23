@@ -10,9 +10,13 @@
     </mat-card-subtitle>
   </mat-card>
   <mat-card *ngFor="let prediction of predictions; index as i;">
-    <mat-card-title>{{prediction.name}}</mat-card-title>
+    <mat-card-header>
+      <mat-card-title>{{prediction.name}}</mat-card-title>
+      <mat-card-subtitle>Status in show: {{ prediction.statusInShow }}</mat-card-subtitle>
+      <img mat-card-avatar src="{{ prediction.image }}">
+    </mat-card-header>
     <mat-card-content>
-      <mat-radio-group [(ngModel)]="prediction.status">
+      <mat-radio-group [(ngModel)]="prediction.statusPrediction">
         <mat-radio-button class="" *ngFor="let status of prediction.statusOptions" [value]="status.name" [checked]="status.isActive">
           {{ status.name }}
         </mat-radio-button>

@@ -77,18 +77,29 @@ export class AddPredictionComponent implements OnInit {
     this.predictions = [];
 
     for (let index = 0; index < this.characters.length; index++) {
-      const element = this.characters[index];
+      const characterName = this.characters[index];
 
       let result = data.filter(value => {
-        return value.name == element;
+        return value.name == characterName;
       });
 
-      let status = "";
-      if (result.length != 0) {
-        status = result[0].status
-      }
+      let statusPrediction = "";
+      let statusInShow = "";
+      let image = "";
 
-      const prediction = new Prediction(element, status);
+      if (result.length > 0) {
+        let remoteCharacter = result[0];
+
+        if (remoteCharacter.user_prediction.length > 0) {
+          statusPrediction = remoteCharacter.user_prediction[0];
+        }
+
+        statusInShow = remoteCharacter.status;
+        image = remoteCharacter.image;
+      }
+      
+      const prediction = new Prediction(characterName, statusPrediction, statusInShow, image);
+      console.log(prediction);
       this.predictions.push(prediction);
     }
 
