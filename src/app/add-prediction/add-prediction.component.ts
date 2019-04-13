@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Prediction } from '../models/prediction';
 import { General } from '../general/general';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-prediction',
@@ -14,6 +15,7 @@ import { General } from '../general/general';
 })
 export class AddPredictionComponent implements OnInit {
   isLoading = false;
+  canEdit = false;
   predictions: Array<Prediction>;
   private form: FormGroup;
 
@@ -85,6 +87,7 @@ export class AddPredictionComponent implements OnInit {
       let statusPrediction = "";
       let statusInShow = "";
       let image = "";
+      let canEdit = false;
 
       if (result.length > 0) {
         let remoteCharacter = result[0];
@@ -95,10 +98,15 @@ export class AddPredictionComponent implements OnInit {
 
         statusInShow = remoteCharacter.status;
         image = remoteCharacter.image;
+        canEdit = remoteCharacter.canEdit;
       }
       
-      const prediction = new Prediction(characterName, statusPrediction, statusInShow, image);
+      const prediction = new Prediction(characterName, statusPrediction, statusInShow, image, canEdit);
       this.predictions.push(prediction);
+    }
+
+    if (this.predictions.length > 0) {
+      this.canEdit = this.predictions[0].canEdit;
     }
 
     this.isLoading = false;
@@ -109,8 +117,13 @@ export class AddPredictionComponent implements OnInit {
       General.show(this.snackBar, "Predictions saved successfully");
       this.router.navigateByUrl("/home");
     }, error => {
-      General.showGeneralError(this.snackBar);
-      console.error(error.error);
+      if (error instanceof HttpErrorResponse) {
+        if (error.status == 403) {
+          General.show(this.snackBar, error.error);
+        }
+        
+        General.showGeneralError(this.snackBar);
+      }
     });
   }
 }

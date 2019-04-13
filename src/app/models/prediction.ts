@@ -5,14 +5,16 @@ export class Prediction {
   statusPrediction: string;
   statusInShow: string;
   image: string;
+  canEdit: boolean;
   statusOptions: Array<Status>;
 
-  constructor(name: string, statusPrediction: string, statusInShow: string, image: string) {
+  constructor(name: string, statusPrediction: string, statusInShow: string, image: string, canEdit: boolean) {
     this.name = name;
     this.statusPrediction = statusPrediction;
     this.statusInShow = statusInShow;
     this.statusOptions = [];
-    this.image = environment.url + image
+    this.image = environment.url + image;
+    this.canEdit = canEdit;
 
     this.generateStatusOptions();
   }
