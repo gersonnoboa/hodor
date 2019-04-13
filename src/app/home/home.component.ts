@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
       this.groups = event as Array<any>;
       this.isLoadingGroups = false;
     }, error => {
-      console.error(error.error);
       this.isLoadingGroups = false;
     });
   }

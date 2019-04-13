@@ -68,7 +68,6 @@ export class AddPredictionComponent implements OnInit {
     this.service.getPredictions().subscribe(event => {
       this.generatePredictions(event as Array<any>);
     }, error => {
-      console.error(error.error);
       this.isLoading = false;
     });
   }

@@ -9,7 +9,7 @@
   </mat-card>
 
   <mat-card *ngFor="let member of group.members; index as i">
-    <mat-card-title>{{i + 1}}. {{member.username}}</mat-card-title>
+    <mat-card-title class="ellipsis">{{i + 1}}. {{member.username}}</mat-card-title>
     <mat-card-subtitle><span class="score">{{member.score}}</span> point(s)</mat-card-subtitle>
   </mat-card>
 

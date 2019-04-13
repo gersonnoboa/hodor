@@ -9,3 +9,9 @@ mat-card {
 button {
   margin-right: 20px;
 }
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
