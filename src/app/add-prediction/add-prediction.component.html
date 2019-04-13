@@ -17,7 +17,7 @@
     </mat-card-header>
     <mat-card-content>
       <mat-radio-group [(ngModel)]="prediction.statusPrediction">
-        <mat-radio-button *ngFor="let status of prediction.statusOptions" [value]="status.name" [checked]="status.isActive" [disabled]="!status.canEdit">
+        <mat-radio-button *ngFor="let status of prediction.statusOptions" [value]="status.name" [checked]="status.isActive" [disabled]="!prediction.canEdit">
           {{ status.name }}
         </mat-radio-button>
       </mat-radio-group>
