@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { GroupComponent } from './group/group.component';
 import { ServerErrorsInterceptor } from './general/server-errors.interceptor';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ServerErrorsInterceptor } from './general/server-errors.interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    GroupComponent
+    GroupComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

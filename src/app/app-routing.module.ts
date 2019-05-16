@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { GroupComponent } from './group/group.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -29,8 +30,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path:"group/:groupId",
+    path: "group/:groupId",
     component: GroupComponent
+  },
+  {
+    path: "statistics",
+    component: StatisticsComponent
   }
 ];
 
