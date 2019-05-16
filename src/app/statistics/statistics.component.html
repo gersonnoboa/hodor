@@ -1,3 +1,21 @@
-<p>
-  statistics works!
-</p>
+<div [hidden]="!isLoading" class="spinner">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div [hidden]="isLoading">
+  <mat-card>
+    <mat-card-title>Statistics</mat-card-title>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <canvas id="canvas">{{chart}}</canvas>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <button mat-raised-button [routerLink]="['/home']">Back</button>
+    </mat-card-content>
+  </mat-card>
+</div>
