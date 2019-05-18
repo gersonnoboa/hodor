@@ -23,6 +23,7 @@ export class StatisticsComponent implements OnInit {
   async ngOnInit() {
     await this.repository.getStatistics();
     this.showStatistics();
+    this.repository.getFacts();
   }
 
   private showStatistics() {
