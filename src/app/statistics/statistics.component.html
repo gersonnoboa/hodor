@@ -9,6 +9,12 @@
 
   <mat-card>
     <mat-card-content>
+      <mat-form-field>
+        <mat-label>Character</mat-label>
+        <select matNativeControl (change)="onCharacterChange($event)" [(ngModel)]="currentSelectedCharacter">
+          <option *ngFor="let character of characters; index as i" value="{{ character }}">{{ character }}</option>
+        </select>
+      </mat-form-field>
       <canvas id="canvas">{{chart}}</canvas>
     </mat-card-content>
   </mat-card>
