@@ -37,7 +37,7 @@ export class StatisticsComponent implements OnInit {
 
   loadChart() {
     this.chart = new Chart("canvas", {
-      type: 'doughnut',
+      type: 'pie',
       data: this.getDataForChart(),
       options: this.getOptionsForChart()
     });
