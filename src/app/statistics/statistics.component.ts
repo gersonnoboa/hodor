@@ -19,6 +19,8 @@ export class StatisticsComponent implements OnInit {
   constructor(private repository: StatisticsRepository) { }
 
   async ngOnInit() {
+    document.getElementById("btnLogout").style.display = "none";
+    
     this.isLoading = true;
     await this.repository.getStatistics();
     this.facts = this.repository.getFacts();
