@@ -12,6 +12,7 @@ export class Facts {
     this.cleganeBowl = new CleganeBowl();
     this.queens = new Queens();
     this.starkSurvival = new StarkSurvival();
+    this.numberOfNightKingVictories = 0;
   }
 }
 
@@ -21,23 +22,23 @@ export class NumberFacts {
   numberOfDeaths: number;
   numberOfWhiteWalkers: number;
 
-
   constructor() {
     this.numberOfVotes = 0;
     this.numberOfAlives = 0;
     this.numberOfDeaths = 0;
     this.numberOfWhiteWalkers = 0;
   }
+
   percentageOfAlives() {
-    return (this.numberOfAlives / this.numberOfVotes).toFixed(2);
+    return ((this.numberOfAlives / this.numberOfVotes) * 100).toFixed(0);
   }
 
   percentageOfDeaths() {
-    return (this.numberOfDeaths / this.numberOfVotes).toFixed(2);
+    return ((this.numberOfDeaths / this.numberOfVotes) * 100).toFixed(0);
   }
 
   percentageOfWhiteWalkers() {
-    return (this.numberOfWhiteWalkers / this.numberOfVotes).toFixed(2);
+    return ((this.numberOfWhiteWalkers / this.numberOfVotes) * 100).toFixed(0);
   }
 }
 
@@ -63,21 +64,36 @@ export class NumberCompoundFact {
   }
 }
 
-class Duel {
+export class Duel {
   bothAlive: number;
   rightAlive: number;
   leftAlive: number;
   bothDead: number;
+
+  constructor() {
+    this.bothAlive = 0;
+    this.rightAlive = 0;
+    this.leftAlive = 0;
+    this.bothDead = 0;
+  }
 }
 
 class CleganeBowl extends Duel { }
 
 class Queens extends Duel { }
 
-class StarkSurvival {
+export class StarkSurvival {
   all: number;
   three: number;
   two: number;
   one: number;
   none: number;
+
+  constructor() {
+    this.all = 0;
+    this.three = 0;
+    this.two = 0;
+    this.one = 0;
+    this.none = 0;
+  }
 }

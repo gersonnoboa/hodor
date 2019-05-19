@@ -5,6 +5,7 @@
 <div [hidden]="isLoading">
   <mat-card>
     <mat-card-title>Statistics</mat-card-title>
+    <mat-card-subtitle>Keep in mind that no character was mandatory, and some users did omit voting for some characters</mat-card-subtitle>
   </mat-card>
 
   <mat-card>
@@ -17,6 +18,67 @@
       </mat-form-field>
       <canvas id="canvas">{{chart}}</canvas>
     </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>General Statistics</mat-card-title>
+    <mat-card-subtitle>All predictions made</mat-card-subtitle>
+    <mat-card-content>
+      <p><span class="small-score">{{ facts.numberFacts.numberOfVotes }}</span> total predictions</p>
+      <p><span class="small-score">{{ facts.numberFacts.numberOfAlives }}</span> alive predictions ({{ facts.numberFacts.percentageOfAlives() }}%)</p>
+      <p><span class="small-score">{{ facts.numberFacts.numberOfDeaths }}</span> dead predictions ({{ facts.numberFacts.percentageOfDeaths() }}%)</p>
+      <p><span class="small-score">{{ facts.numberFacts.numberOfWhiteWalkers }}</span> white walker predictions ({{ facts.numberFacts.percentageOfWhiteWalkers() }}%)</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Most saved/killed/white walker</mat-card-title>
+    <mat-card-subtitle>Calculated based on if the user predicted at least one character as white walker</mat-card-subtitle>
+    <mat-card-content>
+      <p><span class="small-score">{{ facts.saves.mostSavedCharacter.name }}</span> was the most saved character (<span
+          class="small-score">{{ facts.saves.mostSavedCharacter.value }}</span> users)</p>
+      <p><span class="small-score">{{ facts.saves.mostKilledCharacter.name }}</span> was the most killed character (<span
+          class="small-score">{{ facts.saves.mostKilledCharacter.value }}</span> users)</p>
+      <p><span class="small-score">{{ facts.saves.mostWhiteWalkerCharacter.name }}</span> was the character most converted to
+        WW (<span class="small-score">{{ facts.saves.mostWhiteWalkerCharacter.value }}</span> users)
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Night King Survives</mat-card-title>
+    <mat-card-subtitle>Calculated based on if the user predicted at least one character as white walker</mat-card-subtitle>
+    <mat-card-content><span class="score">{{ facts.numberOfNightKingVictories }}</span></mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Cleganebowl</mat-card-title>
+    <mat-card-subtitle>Duel between the Clegane brothers</mat-card-subtitle>
+    <mat-card-content><p>Both alive: <span class="small-score">{{ facts.cleganeBowl.bothAlive }}</span></p>
+    <p>The Hound wins: <span class="small-score">{{ facts.cleganeBowl.rightAlive }}</span></p>
+    <p>The Mountain wins: <span class="small-score">{{ facts.cleganeBowl.leftAlive }}</span></p>
+    <p>Both die: <span class="small-score">{{ facts.cleganeBowl.bothDead }}</span></p></mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Killer Queens</mat-card-title>
+    <mat-card-subtitle>Duel between Cersei Lannister and Daenerys Targaryen</mat-card-subtitle>
+    <mat-card-content><p>Both alive: <span class="small-score">{{ facts.queens.bothAlive }}</span></p>
+    <p>Only Cersei alive: <span class="small-score">{{ facts.queens.rightAlive }}</span></p>
+    <p>Only Daenerys alive: <span class="small-score">{{ facts.queens.leftAlive }}</span></p>
+    <p>Both die: <span class="small-score">{{ facts.queens.bothDead }}</span></p></mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Stark Survival</mat-card-title>
+    <mat-card-subtitle>How many Starks were left alive? (Jon Snow counts as a Stark)</mat-card-subtitle>
+    <mat-card-content><p>All of them: <span class="small-score">{{ facts.starkSurvival.all }}</span></p>
+    <p>Only three: <span class="small-score">{{ facts.starkSurvival.three }}</span>
+    </p>
+    <p>Only two: <span class="small-score">{{ facts.starkSurvival.two }}</span>
+    </p>
+    <p>Only one: <span class="small-score">{{ facts.starkSurvival.one }}</span></p>
+    <p>All dead: <span class="small-score">{{ facts.starkSurvival.none }}</span></p></mat-card-content>
   </mat-card>
 
   <mat-card>

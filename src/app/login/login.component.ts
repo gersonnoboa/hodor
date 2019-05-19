@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     }, 
     error => {
       General.showGeneralError(this.snackBar);
-      console.log(error.error);
     });
   }
 

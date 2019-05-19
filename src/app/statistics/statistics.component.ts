@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { StatisticsService } from './statistics.service';
-import { StatisticsAdapter } from './statistics-adapter';
-import { Statistic } from './statistic';
 import { StatisticsRepository } from './statistics-repository';
+import { Facts } from './facts';
 
 @Component({
   selector: 'app-statistics',
@@ -16,14 +14,16 @@ export class StatisticsComponent implements OnInit {
   characters = [];
   statusCollection = [];
   currentSelectedCharacter = "";
+  facts: Facts = new Facts();
 
-  constructor(private repository: StatisticsRepository) {
-   }
+  constructor(private repository: StatisticsRepository) { }
 
   async ngOnInit() {
+    this.isLoading = true;
     await this.repository.getStatistics();
+    this.facts = this.repository.getFacts();
+    this.isLoading = false;
     this.showStatistics();
-    this.repository.getFacts();
   }
 
   private showStatistics() {
@@ -89,7 +89,6 @@ export class StatisticsComponent implements OnInit {
   }
 
   onCharacterChange(event) {
-    console.log(this.currentSelectedCharacter);
     this.updateData();
   }
 
