@@ -16,7 +16,9 @@
           <option *ngFor="let character of characters; index as i" value="{{ character }}">{{ character }}</option>
         </select>
       </mat-form-field>
-      <canvas id="canvas">{{chart}}</canvas>
+      <div class="canvas-container">
+        <canvas id="canvas" height="300">{{chart}}</canvas>
+      </div>
     </mat-card-content>
   </mat-card>
 
@@ -32,7 +34,7 @@
   </mat-card>
 
   <mat-card>
-    <mat-card-title>Most Saved/Killed/Converted</mat-card-title>
+    <mat-card-title>Most Saved, Killed, and Converted</mat-card-title>
     <mat-card-subtitle>Charactes with the most predictions in each category</mat-card-subtitle>
     <mat-card-content>
       <p><span class="small-score">{{ facts.saves.mostSavedCharacter.name }}</span> was the most saved character (<span
