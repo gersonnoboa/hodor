@@ -26,24 +26,20 @@
     <mat-card-title>General Statistics</mat-card-title>
     <mat-card-subtitle>All predictions made</mat-card-subtitle>
     <mat-card-content>
-      <p><span class="small-score">{{ facts.numberFacts.numberOfVotes }}</span> total predictions</p>
-      <p><span class="small-score">{{ facts.numberFacts.numberOfAlives }}</span> alive predictions ({{ facts.numberFacts.percentageOfAlives() }}%)</p>
-      <p><span class="small-score">{{ facts.numberFacts.numberOfDeaths }}</span> dead predictions ({{ facts.numberFacts.percentageOfDeaths() }}%)</p>
-      <p><span class="small-score">{{ facts.numberFacts.numberOfWhiteWalkers }}</span> white walker predictions ({{ facts.numberFacts.percentageOfWhiteWalkers() }}%)</p>
+      <p>{{ facts.numberFacts.numberOfVotes }} total predictions</p>
+      <p>{{ facts.numberFacts.numberOfAlives }} alive ({{ facts.numberFacts.percentageOfAlives() }}%)</p>
+      <p>{{ facts.numberFacts.numberOfDeaths }} dead ({{ facts.numberFacts.percentageOfDeaths() }}%)</p>
+      <p>{{ facts.numberFacts.numberOfWhiteWalkers }} white walkers ({{ facts.numberFacts.percentageOfWhiteWalkers() }}%)</p>
     </mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Most Saved, Killed, and Converted</mat-card-title>
-    <mat-card-subtitle>Charactes with the most predictions in each category</mat-card-subtitle>
+    <mat-card-subtitle>Characters with the most predictions in each category</mat-card-subtitle>
     <mat-card-content>
-      <p><span class="small-score">{{ facts.saves.mostSavedCharacter.name }}</span> was the most saved character (<span
-          class="small-score">{{ facts.saves.mostSavedCharacter.value }}</span> users)</p>
-      <p><span class="small-score">{{ facts.saves.mostKilledCharacter.name }}</span> was the most killed character (<span
-          class="small-score">{{ facts.saves.mostKilledCharacter.value }}</span> users)</p>
-      <p><span class="small-score">{{ facts.saves.mostWhiteWalkerCharacter.name }}</span> was the character most converted to
-        WW (<span class="small-score">{{ facts.saves.mostWhiteWalkerCharacter.value }}</span> users)
-      </p>
+      <p><span class="small-score">{{ facts.saves.mostSavedCharacter.name }}</span> was the most saved character ({{ facts.saves.mostSavedCharacter.value }} users)</p>
+      <p><span class="small-score">{{ facts.saves.mostKilledCharacter.name }}</span> was the most killed character ({{ facts.saves.mostKilledCharacter.value }} users)</p>
+      <p><span class="small-score">{{ facts.saves.mostWhiteWalkerCharacter.name }}</span> was the character most converted to WW ({{ facts.saves.mostWhiteWalkerCharacter.value }} users)</p>
     </mat-card-content>
   </mat-card>
 
@@ -56,31 +52,31 @@
   <mat-card>
     <mat-card-title>Cleganebowl</mat-card-title>
     <mat-card-subtitle>Duel between the Clegane brothers</mat-card-subtitle>
-    <mat-card-content><p>Both alive: <span class="small-score">{{ facts.cleganeBowl.bothAlive }}</span></p>
-    <p>The Hound wins: <span class="small-score">{{ facts.cleganeBowl.rightAlive }}</span></p>
-    <p>The Mountain wins: <span class="small-score">{{ facts.cleganeBowl.leftAlive }}</span></p>
-    <p>Both die: <span class="small-score">{{ facts.cleganeBowl.bothDead }}</span></p></mat-card-content>
+    <mat-card-content><p>Both alive: {{ facts.cleganeBowl.bothAlive }}</p>
+    <p>The Hound wins: {{ facts.cleganeBowl.rightAlive }}</p>
+    <p>The Mountain wins: {{ facts.cleganeBowl.leftAlive }}</p>
+    <p>Both die: {{ facts.cleganeBowl.bothDead }}</p></mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Killer Queens</mat-card-title>
     <mat-card-subtitle>Duel between Cersei Lannister and Daenerys Targaryen</mat-card-subtitle>
-    <mat-card-content><p>Both alive: <span class="small-score">{{ facts.queens.bothAlive }}</span></p>
-    <p>Only Cersei alive: <span class="small-score">{{ facts.queens.rightAlive }}</span></p>
-    <p>Only Daenerys alive: <span class="small-score">{{ facts.queens.leftAlive }}</span></p>
-    <p>Both die: <span class="small-score">{{ facts.queens.bothDead }}</span></p></mat-card-content>
+    <mat-card-content><p>Both alive: {{ facts.queens.bothAlive }}</p>
+    <p>Cersei alive: {{ facts.queens.rightAlive }}</p>
+    <p>Daenerys alive: {{ facts.queens.leftAlive }}</p>
+    <p>Both die: {{ facts.queens.bothDead }}</p></mat-card-content>
   </mat-card>
 
   <mat-card>
-    <mat-card-title>Stark Survival</mat-card-title>
+    <mat-card-title>Stark Survivors</mat-card-title>
     <mat-card-subtitle>How many Starks were left alive? (Jon Snow counts as a Stark)</mat-card-subtitle>
-    <mat-card-content><p>All of them: <span class="small-score">{{ facts.starkSurvival.all }}</span></p>
-    <p>Only three: <span class="small-score">{{ facts.starkSurvival.three }}</span>
-    </p>
-    <p>Only two: <span class="small-score">{{ facts.starkSurvival.two }}</span>
-    </p>
-    <p>Only one: <span class="small-score">{{ facts.starkSurvival.one }}</span></p>
-    <p>All dead: <span class="small-score">{{ facts.starkSurvival.none }}</span></p></mat-card-content>
+    <mat-card-content>
+      <p>All of them: {{ facts.starkSurvival.all }}</p>
+      <p>Three: {{ facts.starkSurvival.three }}</p>
+      <p>Two: {{ facts.starkSurvival.two }}</p>
+      <p>One: {{ facts.starkSurvival.one }}</p>
+      <p>All dead: {{ facts.starkSurvival.none }}</p>
+    </mat-card-content>
   </mat-card>
 
   <mat-card>
